@@ -1,0 +1,33 @@
+﻿@model Employee
+
+@{
+    ViewData["title"] = "Update of Employee";
+}
+
+<h1>Atualização de Carro</h1>
+
+<message message="@TempData["message"]"></message>
+
+<form asp-action="Update">
+
+<!-- EXCLUSIVE FORM TO UPDATE  --->
+<div class="mb-3">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Salary"></label>
+    <input type="number" asp-for="Salary" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="UserGender"></label>
+    <select class="form-select" asp-for="UserGender"
+            asp-items="@Html.GetEnumSelectList<Employee.Gender>()">
+        <option>Choose Gender</option>
+    </select>
+</div>
+
+    <button type="submit" class="btn btn-primary" title="Update">Update</button>
+
+    <a asp-action="index" class="btn btn-outline-dark">Employee's List</a>
+</form>

@@ -17,8 +17,6 @@ namespace cp_2_enterprise.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy hh:mm:ss tt}")]
         public DateTime HireDate { get; set; }
 
-        public bool Active { get; set; }
-
         public enum Gender
         {
             MALE, FEMALE

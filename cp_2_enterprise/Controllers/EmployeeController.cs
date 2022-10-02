@@ -31,7 +31,6 @@ namespace cp_2_enterprise.Controllers
         public IActionResult Create(Employee employee)
         {
             employee.Id = ++_id;
-            employee.Active = true;
             employee.HireDate = DateTime.Now;
 
             int tamanho = _employees.Count;
@@ -56,6 +55,43 @@ namespace cp_2_enterprise.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult Update(Employee newEmployee)
+        {
+            var index = _employees.FindIndex(match: employee => employee.Id == newEmployee.Id);
+
+            newEmployee.HireDate = _employees[index].HireDate;
+
+            _employees[index] = newEmployee;
+
+            TempData["msg"] = "Employee Updated!";
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var newEmployee = _employees.Find(match: employee  => employee.Id == id);
+
+            return View(newEmployee);
+        }
+
+        
+        [HttpPost]
+        public IActionResult Search(string Name)
+        {
+            var employee = _employees.Find(match: employee => employee.Name == Name);
+
+            return View(employee);
+        }
+
+        [HttpGet]
+        public IActionResult Search()
+        {
+            return View();
+        }
+     
     }
 }
 
