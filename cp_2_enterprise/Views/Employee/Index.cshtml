@@ -7,7 +7,7 @@
 
 <message message="@TempData["msg"]"></message>
 
-<!--<a asp-action="create" class="btn btn-sm btn-outline-dark">Create</a>-->
+<a asp-action="create" class="mb-3 btn btn-sm btn-outline-dark">Register New Employee</a>
 
 <table class="table">
     <tr>
@@ -24,9 +24,9 @@
         <tr>
             <td>@employee.Id</td>
             <td>@employee.Name</td>
+            <td>@employee.Salary</td>
             <td>@employee.UserGender</td>
             <td>@employee.HireDate</td>
-            <td>@employee.Salary</td>
             <td>@(employee.Active ? "ACTIVE":"INACTIVE")</td>
         </tr>
     }
