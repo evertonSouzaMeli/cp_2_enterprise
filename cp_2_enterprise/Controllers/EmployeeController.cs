@@ -43,6 +43,19 @@ namespace cp_2_enterprise.Controllers
 
             return RedirectToAction("Create");
         }
+
+        [HttpPost]
+        public IActionResult Remove(int position)
+        {
+            var index = _employees.FindIndex(match: employee => employee.Id == position);
+
+            _employees.RemoveAt(index);
+
+            TempData["msg"] = "Employee Removed";
+
+            return RedirectToAction("Index");
+        }
+
     }
 }
 

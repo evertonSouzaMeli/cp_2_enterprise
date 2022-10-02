@@ -28,6 +28,32 @@
             <td>@employee.UserGender</td>
             <td>@employee.HireDate</td>
             <td>@(employee.Active ? "ACTIVE":"INACTIVE")</td>
+            <td>
+                <button onclick="employeeId.value = @employee.Id" type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Remover
+                </button>
+            </td>
         </tr>
     }
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you really want to remove the Employee?
+            </div>
+            <div class="modal-footer">
+                <form asp-action="Remove">
+                    <input name="position" type="hidden" id="employeeId" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
