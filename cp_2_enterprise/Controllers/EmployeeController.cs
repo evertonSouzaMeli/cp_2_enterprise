@@ -10,13 +10,15 @@ namespace cp_2_enterprise.Controllers
 {
     public class EmployeeController : Controller
     {
-        private List<Employee>? _employees = new List<Employee>();
+        private static List<Employee> _employees = new List<Employee>();
 
         private static int _id = 0;
 
         public IActionResult Index()
         {
-            return View(_employees);
+            List<Employee> newList = new List<Employee>(_employees);
+
+            return View(newList);
         }
 
         [HttpGet]
@@ -35,7 +37,7 @@ namespace cp_2_enterprise.Controllers
             int tamanho = _employees.Count;
 
 
-            _employees?.Add(employee);
+            _employees.Add(employee);
 
             TempData["msg"] = "Employee Registred";
 
