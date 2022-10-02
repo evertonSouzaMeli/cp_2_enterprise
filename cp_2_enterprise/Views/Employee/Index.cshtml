@@ -1,0 +1,33 @@
+﻿@model List<Employee>
+
+@{ ViewData["Title"] = "Employees"; }
+
+
+<h1>Employees</h1>
+
+<message message="@TempData["msg"]"></message>
+
+<!--<a asp-action="create" class="btn btn-sm btn-outline-dark">Create</a>-->
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>UserGender</th>
+        <th>HireDate</th>
+        <th>Active</th>
+    </tr>
+
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@employee.Id</td>
+            <td>@employee.Name</td>
+            <td>@employee.UserGender</td>
+            <td>@employee.HireDate</td>
+            <td>@employee.Salary</td>
+            <td>@(employee.Active ? "ACTIVE":"INACTIVE")</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,17 @@
+﻿@model Employee
+
+<div class="mb-3">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="Salary"></label>
+    <input type="number" asp-for="Salary" class="form-control" />
+</div>
+<div class="mb-3">
+    <label asp-for="UserGender"></label>
+    <select class="form-select" asp-for="UserGender"
+            asp-items="@Html.GetEnumSelectList<Employee.Gender>()">
+        <option>Choose Gender</option>
+    </select>
+</div>

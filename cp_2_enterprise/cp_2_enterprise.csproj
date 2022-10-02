@@ -6,4 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Employee\" />
+    <None Remove="TagHelpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Employee\" />
+    <Folder Include="TagHelpers\" />
+  </ItemGroup>
 </Project>

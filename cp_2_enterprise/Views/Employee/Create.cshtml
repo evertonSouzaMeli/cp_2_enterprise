@@ -1,0 +1,17 @@
+﻿@model Employee
+
+@{ ViewData["title"] = "Employee Registration"; }
+
+
+
+<h1>Employee Registration</h1>
+
+<message message="@TempData["msg"]"></message>
+
+<form asp-action="Create">
+
+    <partial name="_Form" />
+
+    <button type="submit" class="btn btn-success">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Employee's List</a>
+</form>
